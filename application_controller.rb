@@ -10,11 +10,10 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
-@name_array = ["test1", "test2"]
-
   post '/process' do
+    @array = ["dance"]
     @username = params[:username]
-    @answer = can_vote(@username, @name_array)
+    @answer = can_vote(@username,@array)
     if @answer == true
     erb :vote
     else

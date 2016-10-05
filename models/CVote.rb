@@ -1,7 +1,6 @@
 
 def can_vote(name, array)
   if array.include?(name) == false
-    array = array.push(name)
     return true
   else
     return false
