@@ -1,7 +1,7 @@
 require 'bundler'
 Bundler.require
 require 'rubygems' # not necessary with ruby 1.9 but included for completeness
-require_relative 'models/Ruby.rb'
+require_relative 'models/CVote.rb'
 
 
 
@@ -10,10 +10,11 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+@name_array = ["test1", "test2"]
 
   post '/process' do
     @username = params[:username]
-    @answer = can_vote(@username)
+    @answer = can_vote(@username, @name_array)
     if @answer == true
     erb :vote
     else
